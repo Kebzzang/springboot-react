@@ -1,0 +1,71 @@
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    console.log(
+      '1. -------------------------------------------스프레드 연산자',
+    );
+    const a = [1, 2, 3];
+    const b = [...a];
+
+    b.push(4); //b값을 변경!! b는 1234 a는 123
+    console.log(`A의 값은: ${a}`); //a랑 b 다른 값 나옴 깊은 복사 다른 저장 영ㅇ역
+    const c = [0, ...a, 4]; //01234
+
+    console.log('2.---------------추가하기');
+    const a2 = [1, 2, 3];
+    const b2 = a2.concat(4);
+    const b21 = a2.push(4); //이거는 4만 나옴
+    a2.push(4); //하면 a2에 4가 추가된 배열이 출력
+    a2.concat(4); //는 아무것도 출력이 안됨. 담기지를 않아서..
+    console.log(`A의 값은: ${a}`); //123
+    console.log(`B의 값은: ${b}`); //1234
+
+    console.log('3.---------------걸러내기'); //삭제하기!!
+    const a3 = [1, 2, 3];
+    const b4 = a3.filter((n) => {
+      return n != 1;
+    }); // boolean 을 리턴받음
+    //b4는 23만 출력됨 1은 걸러짐
+
+    console.log('4.---------------잘라내기'); //중간삽입 가능
+    const a4 = [1, 2, 3];
+    const b4 = a4.slice(0, 2); //12 출력
+    const f4 = [a4.slice(1, 2)]; //리스트 안에 리스트로 생김 [[2,3]]
+    const c4 = [...a4.slice(0, 2), 4, ...a4.slice(2, 3)]; //1,2,4,3 출력
+
+    console.log('5.---------------반복하기');
+    const a5 = [1, 2, 3];
+    a5.forEach((n) => {
+      console.log(n); //1 2 3 차례로 뿌려짐
+    });
+    const b5 = a5.map((n) => {
+      return n + 10;
+    }); //값 하나하나 가공하기
+
+    //연습!!
+    const a6 = { id: 1, name: 'KEB' };
+    const b6 = { ...a6, name: 'NEW' };
+    console.log(b6); //이러면 이제 b6는 이름이 뉴고 a6는 그대로임!!
+
+    const users = [
+      { id: 1, name: '김이비', phone: '2222' },
+      { id: 2, name: '김이비2', phone: '32222' },
+      { id: 3, name: '김이비3', phone: '22422' },
+    ];
+
+    const updateUserDto = {
+      id: 2,
+      name: '홍길동',
+    };
+
+    const updatedUser = users.map((user) =>
+      user.id === updateUserDto.id ? { ...user, ...updateuserDto } : user,
+    );
+
+    //users[1].name=updateUserDto.name; 이렇게 하지 마라랑
+  </script>
+</body>
