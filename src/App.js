@@ -1,5 +1,4 @@
 import './App.css';
-import HomePage from './pages/HomePage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { Route } from 'react-router';
@@ -10,12 +9,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div>
+    <div className="main-wrapper">
       <Header />
-      <Route path="/" exact={true} component={HomePage} />
-      <Route path="/login" exact={true} component={LoginPage} />
+      {/* <Route path="/login" exact={true} component={LoginPage} />
       <Route path="/write" exact={true} component={WritePage} />
-      <Route path="/list" exact={true} component={ListPage} />
+      <Route path="/" exact={true} component={ListPage} /> */}
+      <ListPage />
       <Footer />
     </div>
   );
