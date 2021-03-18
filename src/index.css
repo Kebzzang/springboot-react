@@ -18,9 +18,3 @@ code {
   bottom: 0;
   width: 100%;
 }
-
-. {
-  position: relative;
-  min-height: 100vh;
- }
- 
