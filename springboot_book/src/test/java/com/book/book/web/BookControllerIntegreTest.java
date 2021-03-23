@@ -5,6 +5,9 @@ package com.book.book.web;
 /*
 MOCK는 다른 톰캣으로 테스트
 RANDOM_PORT 실제 톰캣으로 테스트
+@AutoConfigureMockMvc MockMvc를 IoC에 등록
+@Transactional은 각각 테스트 함수 종료될 때마다 트랜잭션을 롤백해줌
+
  */
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -19,4 +22,9 @@ import org.springframework.transaction.annotation.Transactional;
 public class BookControllerIntegreTest {
     @Autowired
     private MockMvc mockMvc;
+
+    public void test1(){
+
+    }
+    public void test2(){}
 }

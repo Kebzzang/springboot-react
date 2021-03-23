@@ -31,14 +31,13 @@ public class BookService {
     public List<Book> bookList(){
         return bookRepository.findAll();
     }
+
     @Transactional
     public Book updateBook(Long id, Book book){
     //더티체킹 update 치기
         Book bookEntity=bookRepository.findById(id).orElseThrow(()->new IllegalArgumentException("Id를 확인해주세요!")); //데이터 영속화  -> 영속성 컨텍스트 안에 저장됨
         bookEntity.setTitle(book.getTitle());
         bookEntity.setAuthor(book.getAuthor());
-
-
         return bookEntity;
     } //함수 종료 -> 트랜잭션 종료 -> 영속화되어있는 데이터를 디비로 갱신 (flush) 디비에 실제 commit!! 변화감지해 등록까지~
     public String deleteBook(Long id){

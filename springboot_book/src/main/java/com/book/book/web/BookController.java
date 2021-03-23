@@ -14,12 +14,12 @@ public class BookController {
 
 
     private final BookService bookService;
-
+    @CrossOrigin
     @PostMapping("/book")
     public ResponseEntity<?> save(@RequestBody Book book){
         return new ResponseEntity<>(bookService.saveBook(book), HttpStatus.CREATED);
     }
-
+    @CrossOrigin
     @GetMapping("/book")
     public ResponseEntity<?> findAll(){ //httpstatuscode를 같이 보낼 수 있는 엔티티
         return new ResponseEntity<>(bookService.bookList(), HttpStatus.OK);
