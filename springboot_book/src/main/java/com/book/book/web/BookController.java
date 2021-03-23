@@ -24,16 +24,19 @@ public class BookController {
     public ResponseEntity<?> findAll(){ //httpstatuscode를 같이 보낼 수 있는 엔티티
         return new ResponseEntity<>(bookService.bookList(), HttpStatus.OK);
     }
+    @CrossOrigin
     @GetMapping("/book/{id}")
     public ResponseEntity<?> findById(@PathVariable Long id){
         return new ResponseEntity<>(bookService.searchBook(id), HttpStatus.OK);
     }
+    @CrossOrigin
     @PutMapping("/book/{id}")
     public ResponseEntity<?> updateById(@PathVariable Long id, @RequestBody Book book){
         return new ResponseEntity<>(bookService.updateBook(id, book), HttpStatus.OK);
     }
+    @CrossOrigin
     @DeleteMapping("/book/{id}")
-    public ResponseEntity<?> deleteById(@PathVariable Long id, @RequestBody Book book){
+    public ResponseEntity<?> deleteById(@PathVariable Long id){
         return new ResponseEntity<>(bookService.deleteBook(id), HttpStatus.OK);
     }
 

@@ -6,16 +6,14 @@ const BookItem = (props) => {
   const { id, title, author } = props.book;
 
   return (
-    <Link to={'/post/' + id} style={{ textDecoration: 'none', color: 'black' }}>
+    <Link to={'/book/' + id} style={{ textDecoration: 'none', color: 'black' }}>
       <Card>
         <Card.Body>
           <blockquote className="blockquote mb-0">
-            <p>
-              {title}
-            </p>
+            <p>{title}</p>
             <footer className="blockquote-footer">
-         <cite title="author">{author}</cite>
-      </footer>
+              <cite title="author">{author}</cite>
+            </footer>
           </blockquote>
         </Card.Body>
       </Card>
